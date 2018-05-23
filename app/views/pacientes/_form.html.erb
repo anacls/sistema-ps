@@ -1,0 +1,57 @@
+<%= form_with(model: paciente, local: true) do |form| %>
+  <% if paciente.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(paciente.errors.count, "error") %> prohibited this paciente from being saved:</h2>
+
+      <ul>
+      <% paciente.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :nome %>
+    <%= form.text_field :nome, id: :paciente_nome %>
+  </div>
+
+  <div class="field">
+    <%= form.label :endereco %>
+    <%= form.text_field :endereco, id: :paciente_endereco %>
+  </div>
+
+  <div class="field">
+    <%= form.label :data_nasc %>
+    <%= form.date_select :data_nasc, id: :paciente_data_nasc %>
+  </div>
+
+  <div class="field">
+    <%= form.label :rg %>
+    <%= form.text_field :rg, id: :paciente_rg %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cpf %>
+    <%= form.text_field :cpf, id: :paciente_cpf %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_field :email, id: :paciente_email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :senha %>
+    <%= form.text_field :senha, id: :paciente_senha %>
+  </div>
+
+  <div class="field">
+    <%= form.label :telefone %>
+    <%= form.text_field :telefone, id: :paciente_telefone %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
