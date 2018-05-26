@@ -1,0 +1,2 @@
+class Atendimento < ApplicationRecord
+end
