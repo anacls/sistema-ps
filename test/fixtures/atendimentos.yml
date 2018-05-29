@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  situacao: MyString
+  sintomas: MyString
+  tempoChegada: 2018-05-26 08:15:11
+  tipoAtendimento: MyString
+
+two:
+  situacao: MyString
+  sintomas: MyString
+  tempoChegada: 2018-05-26 08:15:11
+  tipoAtendimento: MyString
