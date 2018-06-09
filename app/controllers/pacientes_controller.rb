@@ -1,6 +1,6 @@
 class PacientesController < ApplicationController
-  before_action :logged_in_paciente, only: [:edit, :update]
-  before_action :correct_paciente,   only: [:edit, :update]
+  before_action :logged_in_paciente, only: [:edit, :update, :destroy]
+  before_action :correct_paciente,   only: [:edit, :update, :destroy]
   # GET /pacientes
   # GET /pacientes.json
   def index
@@ -57,7 +57,7 @@ class PacientesController < ApplicationController
   def destroy
     @paciente.destroy
     respond_to do |format|
-      format.html { redirect_to pacientes_url, notice: 'Paciente was successfully destroyed.' }
+      format.html { redirect_to root_url, notice: 'Paciente was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
