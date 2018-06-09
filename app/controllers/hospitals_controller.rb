@@ -25,15 +25,10 @@ class HospitalsController < ApplicationController
   # POST /hospitals.json
   def create
     @hospital = Hospital.new(hospital_params)
-
-    respond_to do |format|
-      if @hospital.save
-        format.html { redirect_to @hospital, notice: 'Hospital was successfully created.' }
-        format.json { render :show, status: :created, location: @hospital }
-      else
-        format.html { render :new }
-        format.json { render json: @hospital.errors, status: :unprocessable_entity }
-      end
+    if @hospital.save
+      loghospital_in @hospital
+      flash[:success] = "Welcome to the Sample App!"
+      redirect_to @hospital
     end
   end
 
