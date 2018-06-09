@@ -5,40 +5,11 @@
   <%= @paciente.nome %>
 </p>
 
-<p>
-  <strong>Endereco:</strong>
-  <%= @paciente.endereco %>
-</p>
-
-<p>
-  <strong>Data nasc:</strong>
-  <%= @paciente.data_nasc %>
-</p>
-
-<p>
-  <strong>Rg:</strong>
-  <%= @paciente.rg %>
-</p>
-
-<p>
-  <strong>Cpf:</strong>
-  <%= @paciente.cpf %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @paciente.email %>
-</p>
-
-<p>
-  <strong>Senha:</strong>
-  <%= @paciente.senha %>
-</p>
-
-<p>
-  <strong>Telefone:</strong>
-  <%= @paciente.telefone %>
-</p>
-
-<%= link_to 'Edit', edit_paciente_path(@paciente) %> |
-<%= link_to 'Back', pacientes_path %>
+<div class="col-md-8">
+    <% if @paciente.atendimentos.any? %>
+      <h3>Atendimentos (<%= @paciente.atendimentos.count %>)</h3>
+      <ol class="atendimentos">
+        <%= render @atendimentos %>
+      </ol>
+    <% end %>
+  </div>

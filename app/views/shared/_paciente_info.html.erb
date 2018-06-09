@@ -1,0 +1,3 @@
+<h1><%= current_paciente.nome %></h1>
+<span><%= link_to "view my profile", current_paciente %></span>
+<span><%= pluralize(current_paciente.atendimentos.count, "atendimento") %></span>

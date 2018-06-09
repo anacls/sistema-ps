@@ -1,0 +1,9 @@
+<li id="atendimento-<%= atendimento.id %>">
+  <span class="user"><%= link_to atendimento.paciente.nome, atendimento.paciente %></span>
+  <span class="content"><%= atendimento.sintomas %></span>
+  <span class="content"><%= atendimento.situacao %></span>
+  <span class="content"><%= atendimento.tipoAtendimento %></span>
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(atendimento.created_at) %> ago.
+  </span>
+</li>

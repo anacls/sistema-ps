@@ -73,13 +73,6 @@ class PacientesController < ApplicationController
       params.require(:paciente).permit(:nome, :endereco, :data_nasc, :rg, :cpf, :email, :password, :telefone, :password_confirmation)
     end
     
-    def logged_in_paciente
-      unless logged_in?
-        store_location
-        flash[:danger] = "Please log in."
-        redirect_to login_url
-      end
-    end
     
     def correct_paciente
       @paciente = Paciente.find(params[:id])
