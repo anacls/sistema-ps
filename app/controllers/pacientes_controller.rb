@@ -1,6 +1,6 @@
 class PacientesController < ApplicationController
-  before_action :set_paciente, only: [:show, :edit, :update, :destroy]
-
+  before_action :logged_in_paciente, only: [:edit, :update]
+  before_action :correct_paciente,   only: [:edit, :update]
   # GET /pacientes
   # GET /pacientes.json
   def index
@@ -20,6 +20,7 @@ class PacientesController < ApplicationController
 
   # GET /pacientes/1/edit
   def edit
+    @paciente = Paciente.find(params[:id])
   end
 
   # POST /pacientes
@@ -29,11 +30,11 @@ class PacientesController < ApplicationController
 
     respond_to do |format|
       if @paciente.save
-        format.html { redirect_to @paciente, notice: 'Paciente was successfully created.' }
-        format.json { render :show, status: :created, location: @paciente }
-      else
-        format.html { render :new }
-        format.json { render json: @paciente.errors, status: :unprocessable_entity }
+        log_in @paciente
+        flash[:success] = "Welcome to the Sample App!"
+        redirect_to @paciente
+        else
+           render 'new'
       end
     end
   end
@@ -41,14 +42,12 @@ class PacientesController < ApplicationController
   # PATCH/PUT /pacientes/1
   # PATCH/PUT /pacientes/1.json
   def update
-    respond_to do |format|
-      if @paciente.update(paciente_params)
-        format.html { redirect_to @paciente, notice: 'Paciente was successfully updated.' }
-        format.json { render :show, status: :ok, location: @paciente }
-      else
-        format.html { render :edit }
-        format.json { render json: @paciente.errors, status: :unprocessable_entity }
-      end
+    @paciente = Paciente.find(params[:id])
+    if @paciente.update_attributes(paciente_params)
+      flash[:success] = "Profile updated"
+      redirect_to @paciente
+    else
+      render 'edit'
     end
   end
 
@@ -71,5 +70,18 @@ class PacientesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def paciente_params
       params.require(:paciente).permit(:nome, :endereco, :data_nasc, :rg, :cpf, :email, :password, :telefone, :password_confirmation)
+    end
+    
+    def logged_in_paciente
+      unless logged_in?
+        store_location
+        flash[:danger] = "Please log in."
+        redirect_to login_url
+      end
+    end
+    
+    def correct_paciente
+      @paciente = Paciente.find(params[:id])
+      redirect_to(root_url) unless current_paciente?(@paciente)
     end
 end
