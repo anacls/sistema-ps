@@ -40,12 +40,17 @@
     <%= form.label :email %>
     <%= form.text_field :email, id: :paciente_email %>
   </div>
-
+  
   <div class="field">
-    <%= form.label :senha %>
-    <%= form.text_field :senha, id: :paciente_senha %>
+    <%= form.label :password %>
+    <%= form.text_field :password, id: :paciente_password %>
   </div>
-
+  
+  <div class="field">
+    <%= form.label :password_confirmation %>
+    <%= form.text_field :password_confirmation, id: :paciente_passwordconfirmation %>
+  </div>
+  
   <div class="field">
     <%= form.label :telefone %>
     <%= form.text_field :telefone, id: :paciente_telefone %>

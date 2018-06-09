@@ -10,6 +10,7 @@ class PacientesController < ApplicationController
   # GET /pacientes/1
   # GET /pacientes/1.json
   def show
+    @paciente = Paciente.find(params[:id])
   end
 
   # GET /pacientes/new
@@ -69,6 +70,6 @@ class PacientesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def paciente_params
-      params.require(:paciente).permit(:nome, :endereco, :data_nasc, :rg, :cpf, :email, :senha, :telefone)
+      params.require(:paciente).permit(:nome, :endereco, :data_nasc, :rg, :cpf, :email, :password, :telefone, :password_confirmation)
     end
 end
