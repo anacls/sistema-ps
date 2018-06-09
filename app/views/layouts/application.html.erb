@@ -9,6 +9,18 @@
   </head>
 
   <body>
+    <header class="navbar navbar-fixed-top navbar-inverse">
+      <div class="container">
+        <a href='static_pages/home'>SUSTENTAÇÃO</a>
+        <nav>
+          <ul class="nav navbar-nav navbar-right">
+            <li><%= link_to "Início",   '#' %></li>
+            <li><%= link_to "Ajuda",   '#' %></li>
+            <li><%= link_to "Entrar", '#' %></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
     <%= yield %>
   </body>
 </html>
