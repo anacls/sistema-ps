@@ -31,10 +31,11 @@ class PacientesController < ApplicationController
     respond_to do |format|
       if @paciente.save
         log_in @paciente
-        flash[:success] = "Welcome to the Sample App!"
-        redirect_to @paciente
+        format.html { redirect_to @paciente, notice: 'Paciente was successfully created.' }
+        format.json { render :show, status: :created, location: @paciente }
         else
-           render 'new'
+          format.html { render :new }
+          format.json { render json: @paciente.errors, status: :unprocessable_entity }
       end
     end
   end
