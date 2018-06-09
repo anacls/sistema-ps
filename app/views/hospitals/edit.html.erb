@@ -2,5 +2,7 @@
 
 <%= render 'form', hospital: @hospital %>
 
-<%= link_to 'Show', @hospital %> |
-<%= link_to 'Back', hospitals_path %>
+<%= link_to 'Show', @hospital %> 
+<%= link_to 'Destroy', @hospital, method: :delete, data: { confirm: 'Are you sure?' } %>
+<%= link_to 'Back', root_url %>
+
