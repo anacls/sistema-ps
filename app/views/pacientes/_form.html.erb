@@ -10,53 +10,77 @@
       </ul>
     </div>
   <% end %>
-
+<div class= "col-md-4">
   <div class="field">
     <%= form.label :nome %>
     <%= form.text_field :nome, id: :paciente_nome %>
   </div>
-
+  
   <div class="field">
-    <%= form.label :endereco %>
-    <%= form.text_field :endereco, id: :paciente_endereco %>
+    <%= form.label :data_nascimento %>
+    <%= form.date_select :data_nasc, {order: [:day, :month, :year]}, id: :paciente_data_nasc %>
   </div>
-
+  
   <div class="field">
-    <%= form.label :data_nasc %>
-    <%= form.date_select :data_nasc, id: :paciente_data_nasc %>
-  </div>
-
-  <div class="field">
-    <%= form.label :rg %>
+    <%= form.label :RG %>
     <%= form.text_field :rg, id: :paciente_rg %>
   </div>
-
+  
   <div class="field">
     <%= form.label :cpf %>
     <%= form.text_field :cpf, id: :paciente_cpf %>
   </div>
-
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email, id: :paciente_email %>
-  </div>
-  
-  <div class="field">
-    <%= form.label :password %>
-    <%= form.text_field :password, id: :paciente_password %>
-  </div>
-  
-  <div class="field">
-    <%= form.label :password_confirmation %>
-    <%= form.text_field :password_confirmation, id: :paciente_passwordconfirmation %>
-  </div>
-  
   <div class="field">
     <%= form.label :telefone %>
-    <%= form.text_field :telefone, id: :paciente_telefone %>
+    <%= form.text_field :telefone, id: :paciente_telefone, placeholder:"(00)(0)0000-0000" %>
+  </div>
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_field :email, id: :paciente_email, placeholder:"example@example.com"%>
+  </div>
+  <div class="field">
+    <%= form.label :senha %>
+    <%= form.password_field :password, id: :paciente_password %>
+  </div>
+  <div class="field">
+    <%= form.label :confirmação_de_senha %>
+    <%= form.password_field :password_confirmation, id: :paciente_passwordconfirmation %>
+  </div>
+  
+</div>
+<div class="col-md-4">
+  <div class="field">
+      <%= form.label :CEP %>
+      <%= form.text_field :cep, id: :cep, onblur: "pesquisacep(this.value)", placeholder:"00.000-000" %>
+  </div>
+  <div class="field">
+    <%= form.label :endereço %>
+    <%= form.text_field :endereco, id: :paciente_endereco %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="field">
+      <%= form.label :bairro %>
+      <%= form.text_field :bairro, id: :paciente_bairro %>
   </div>
+   
+  
+</div>
+<div class="col-md-4">
+  <div class="field">
+    <%= form.label :numero %>
+    <%= form.text_field :numero, id: :paciente_numero %>
+  </div>
+  <div class="field">
+      <%= form.label :cidade %>
+      <%= form.text_field :cidade, id: :paciente_cidade %>
+  </div>
+  <div class="field">
+      <%= form.label :estado %>
+      <%= form.text_field :estado, id: :paciente_estado %>
+  </div>
+  
+  <div class="actions cadastro_paciente center">
+    <input type="submit" value="Criar Cadastro" class= "btn btn-info center"> </input>
+  </div>
+</div>
 <% end %>
