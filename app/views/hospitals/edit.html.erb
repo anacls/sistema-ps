@@ -1,8 +1,10 @@
-<h1>Editar Hospital</h1>
+<h1 class="title">Editar Informações do Hospital</h1>
 
 <%= render 'form', hospital: @hospital %>
 
 <%= link_to 'Show', @hospital %> 
-<%= link_to 'Destroy', @hospital, method: :delete, data: { confirm: 'Are you sure?' } %>
-<%= link_to 'Back', root_url %>
-
+<div class="container">
+<button class="btn btn-danger center destroy">
+  <%= link_to 'Excluir Cadastro', @hospital, method: :delete, data: { confirm: 'Você tem certeza?' } %>
+</button>
+</div>

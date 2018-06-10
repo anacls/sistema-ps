@@ -16,8 +16,11 @@ section {
   overflow: auto;
 }
 .destroy{
-  margin-left: 50px;
-
+  float: right;
+  position: absolute;
+  right: 220px;
+  bottom: 150px;
+  
 }
 textarea {
   resize: vertical;
