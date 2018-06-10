@@ -7,7 +7,7 @@ class CreatePacientes < ActiveRecord::Migration[5.1]
       t.string :rg
       t.string :cpf
       t.string :email
-      t.password :senha
+      t.string :senha
       t.string :telefone
 
       t.timestamps
