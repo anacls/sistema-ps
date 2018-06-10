@@ -1,4 +1,4 @@
-<h1>Log in</h1>
+<h1 class="title">Login Hospital</h1>
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
@@ -6,13 +6,14 @@
 
       <%= f.label :email %>
       <%= f.email_field :email, class: 'form-control' %>
-
+      <br>
       <%= f.label :password %>
       <%= f.password_field :password, class: 'form-control' %>
-
-      <%= f.submit "Log in", class: "btn btn-primary" %>
+      <br>
+      <div class="center">
+      <%= f.submit "Entrar", class: "btn btn-primary center" %>
+      </div>
     <% end %>
-
-    <p>New user? <a href='/hospitals/new'>Sign up now!</a> 
-  </div>
+    <br>
+    <p>Seu hospital ainda não é cadastrado? <a class="link-interno" href='/hospitals/new'>Cadastre agora!</a> 
 </div>
