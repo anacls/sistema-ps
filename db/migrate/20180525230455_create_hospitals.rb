@@ -6,7 +6,7 @@ class CreateHospitals < ActiveRecord::Migration[5.1]
       t.string :cnpj
       t.string :telefone
       t.string :email
-      t.string :senha
+      t.password :senha
 
       t.timestamps
     end
