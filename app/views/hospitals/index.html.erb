@@ -2,15 +2,15 @@
 
 <h1>Hospitais</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Nome</th>
-      <th>Endereco</th>
-      <th>Cnpj</th>
+      <th>Endereço</th>
+      <th>CNPJ</th>
       <th>Telefone</th>
       <th>Email</th>
-      <th colspan="3"></th>
+      <th colspan="4"></th>
     </tr>
   </thead>
 
@@ -18,7 +18,7 @@
     <% @hospitals.each do |hospital| %>
       <tr>
         <td><%= hospital.nome %></td>
-        <td><%= hospital.endereco %></td>
+        <td><%= hospital.endereco %>, <%= hospital.numero %> - <%= hospital.bairro %> | <%= hospital.cidade %> - <%= hospital.estado %></td>
         <td><%= hospital.cnpj %></td>
         <td><%= hospital.telefone %></td>
         <td><%= hospital.email %></td>

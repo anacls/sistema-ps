@@ -1,6 +1,15 @@
 <body>
   <% if logged_in? %>
   <div class="col-md-8">
+    <button class="btn btn-default" href=#> Atendimentos </button>
+    <button class="btn btn-default" href=#> Fila </button>
+    <button class="btn btn-default" href=#> Receituário </button>
+    <button class="btn btn-default" href=#> Prontuário </button>
+    <button class="btn btn-default" href=#> Primeros Socorros </button>
+  </div>
+  <br>
+  <br>
+  <div class="col-md-8">
       <h3>Atendimentos</h3>
       <%= render 'shared/feed' %>
     </div>
@@ -14,46 +23,61 @@
       </section>
     </aside>
     <div class="col-md-4">
-      <a href='/hospitals/index'>Ver hospitais cadastrados</a>
+      <a class="link-interno" href='/hospitals/index'>Ver hospitais cadastrados</a>
     </div>
   </div>
 <% else %>
-<div class="content">
-  <div class="title">
-  <h1>SUSTENTAÇÃO</h1>
-  </div>
-  <div class="col-md-5">
-    <h2 class="title">Para usuários comuns</h2>
-    <p>Sustentação é o aplicativo perfeito para você que não quer mais perder horas e horas na fila do pronto socorro.</p>
-    <p>Se cadastrando como paciente você pode:</p>
-    <ul>
-    <li>Solicitar atendimentos</li>
-    <li>Consultar seus receituários</li>
-    <li>Consultar primeiros socorros</li>
-    <li>Ver todos os hospitais que trabalham com nosso sistema</li>
-  </ul>
-  <div class="center">
-    <a class="btn btn-danger" href='/pacientes/new'> Cadastre-se agora! </a>
-  </div>
-  </div>
-  <div class="container">
-    <div class="col-md-4 descricao">
-    <h2 class="title">Para hospitais</h2>
-    <p>Com o Sustentação você consegue controlar toda a administração do seu sistema num único aplicativo.</p>
-    <p>Cadastrando seu hospital você pode:</p>
-    <ul>
-    <li>Cadastrar seus funcionários</li>
-    <li>Gerenciar sua fila</li>
-    <li>Cadastrar prontuários</li>
-    <li>Saber a urgência dos atendimentos antes dos pacientes chegarem</li>
-    E muito mais...
-  </ul>
-  <div class="center">
-  <a class="btn btn-danger" href='/hospitals/new'> Cadastre seu hospital agora! </a>
-  <div class="center">
-  </div>
-  
-  </div>
+  <% if loggedhospital_in? %>
+      <div class="col-md-12">
+        <button class="btn btn-default" href=#> Hospital </button>
+        <button class="btn btn-default" href=#> Funcionário </button>
+        <button class="btn btn-default" href=#> Atendimento </button>
+        <button class="btn btn-default" href=#> Fila </button>
+        <button class="btn btn-default" href=#> Receituário </button>
+        <button class="btn btn-default" href=#> Prontuário </button>
+        <button class="btn btn-default" href=#> Primeros Socorros </button>
+      </div>
+    <div class="col-md-8">
+      <h3>Hospital</h3>
+      <%= render 'shared/hospital_info' %>
+    </div>
+  <% else %>  
+  <div class="content">
+    <div class="title">
+    <h1>SUSTENTAÇÃO</h1>
+    </div>
+    <div class="col-md-5">
+      <h2 class="title">Para usuários comuns</h2>
+      <p>Sustentação é o aplicativo perfeito para você que não quer mais perder horas e horas na fila do pronto socorro.</p>
+      <p>Se cadastrando como paciente você pode:</p>
+      <ul>
+      <li>Solicitar atendimentos</li>
+      <li>Consultar seus receituários</li>
+      <li>Consultar primeiros socorros</li>
+      <li>Ver todos os hospitais que trabalham com nosso sistema</li>
+    </ul>
+    <div class="center">
+      <a class="btn btn-danger" href='/pacientes/new'> Cadastre-se agora! </a>
+    </div>
+    </div>
+    <div class="container">
+      <div class="col-md-4 descricao">
+      <h2 class="title">Para hospitais</h2>
+      <p>Com o Sustentação você consegue controlar toda a administração do seu sistema num único aplicativo.</p>
+      <p>Cadastrando seu hospital você pode:</p>
+      <ul>
+      <li>Cadastrar seus funcionários</li>
+      <li>Gerenciar sua fila</li>
+      <li>Cadastrar prontuários</li>
+      <li>Saber a urgência dos atendimentos antes dos pacientes chegarem</li>
+      E muito mais...
+    </ul>
+    <div class="center">
+    <a class="btn btn-danger" href='/hospitals/new'> Cadastre seu hospital agora! </a>
+    </div>
 </div>
+</div>
+</div>
+  <% end %>
   <% end %>
 </body>

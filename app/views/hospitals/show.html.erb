@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Nome:</strong>
   <%= @hospital.nome %>
+  <p id="notice"><%= notice %></p>
+<div class="col-md-8">
+  <p>Email: <%= @hospital.email %></p>
+  <p>Endereço: <%= @hospital.endereco %>,<%= @hospital.numero %> - <%= @hospital.bairro %> | <%= @hospital.cidade %> - <%= @hospital.estado %> </p>
+</div>
+
 </p>
