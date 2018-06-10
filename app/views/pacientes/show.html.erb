@@ -1,15 +1,24 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Nome:</strong>
-  <%= @paciente.nome %>
+  <strong>Oi, <%= @paciente.nome %>, </strong>
+  <p>Esse é o resumo do seu perfil: </p>
+  
 </p>
-
 <div class="col-md-8">
+  <p>Email: <%= @paciente.email %></p>
+  <p>Endereço: <%= @paciente.endereco %>,<%= @paciente.numero %> - <%= @paciente.bairro %> | <%= @paciente.cidade %> - <%= @paciente.estado %> </p>
+</div>
+
+<div class="col-md-4">
+    <p>Você possui:</p> 
+    <ul>
+    <li> Atendimentos
     <% if @paciente.atendimentos.any? %>
-      <h3>Atendimentos (<%= @paciente.atendimentos.count %>)</h3>
-      <ol class="atendimentos">
-        <%= render @atendimentos %>
-      </ol>
+      (<%= @paciente.atendimentos.count %>)
     <% end %>
+    </li>
+    <li> Receituários </li>
+    <li> Prontuários </li>
+    </ul>
   </div>
