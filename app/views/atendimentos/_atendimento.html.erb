@@ -1,9 +1,18 @@
+<div class="content">
 <li id="atendimento-<%= atendimento.id %>">
-  <span class="user"><%= link_to atendimento.paciente.nome, atendimento.paciente %></span>
+  <span class="content">Sintomas: </span>
   <span class="content"><%= atendimento.sintomas %></span>
+  <br>
+  <span class="content">Situação: </span>
   <span class="content"><%= atendimento.situacao %></span>
+  <br>
+  <span class="content">Tipo de Atendimento: </span>
   <span class="content"><%= atendimento.tipoAtendimento %></span>
+  <br>
   <span class="timestamp">
-    Posted <%= time_ago_in_words(atendimento.created_at) %> ago.
+    Realizado <%= time_ago_in_words(atendimento.created_at) %> atrás.
   </span>
+  <br>
+  <br>
 </li>
+</div>

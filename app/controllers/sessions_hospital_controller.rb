@@ -4,7 +4,7 @@ class SessionsHospitalController < ApplicationController
   
   def create
     hospital = Hospital.find_by(email: params[:session][:email].downcase)
-    if hospital && hospital.authenticate(params[:session][:password])
+    if hospital && hospital.authenticate(params[:session][:senha])
       loghospital_in hospital
       redirect_to hospital
     else

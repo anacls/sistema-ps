@@ -77,3 +77,66 @@ function pesquisacep(valor) {
             limpa_formulário_cep();
         }
     };
+/* hospital cep */ 
+function limpa_formulário_hospital_cep() {
+            //Limpa valores do formulário de cep.
+            document.getElementById('hospital_endereco').value=("");
+            document.getElementById('hospital_bairro').value=("");
+            document.getElementById('hospital_cidade').value=("");
+            document.getElementById('hospital_estado').value=("");
+    }
+
+    function meuhospital_callback(conteudo) {
+        if (!("erro" in conteudo)) {
+            //Atualiza os campos com os valores.
+            document.getElementById('hospital_endereco').value=(conteudo.logradouro);
+            document.getElementById('hospital_bairro').value=(conteudo.bairro);
+            document.getElementById('hospital_cidade').value=(conteudo.localidade);
+            document.getElementById('hospital_estado').value=(conteudo.uf);
+        } //end if.
+        else {
+            //CEP não Encontrado.
+            limpa_formulário_hospital_cep();
+            alert("CEP não encontrado.");
+        }
+    }
+function pesquisacephospital(valor) {
+
+        //Nova variável "cep" somente com dígitos.
+        var cep = valor.replace(/\D/g, '');
+
+        //Verifica se campo cep possui valor informado.
+        if (cep != "") {
+
+            //Expressão regular para validar o CEP.
+            var validacep = /^[0-9]{8}$/;
+
+            //Valida o formato do CEP.
+            if(validacep.test(cep)) {
+
+                //Preenche os campos com "..." enquanto consulta webservice.
+                document.getElementById('hospital_endereco').value="...";
+                document.getElementById('hospital_bairro').value="...";
+                document.getElementById('hospital_cidade').value="...";
+                document.getElementById('hospital_estado').value="...";
+                //Cria um elemento javascript.
+                var script = document.createElement('script');
+
+                //Sincroniza com o callback.
+                script.src = 'https://viacep.com.br/ws/'+ cep + '/json/?callback=meuhospital_callback';
+
+                //Insere script no documento e carrega o conteúdo.
+                document.body.appendChild(script);
+
+            } //end if.
+            else {
+                //cep é inválido.
+                limpa_formulário_hospital_cep();
+                alert("Formato de CEP inválido.");
+            }
+        } //end if.
+        else {
+            //cep sem valor, limpa formulário.
+            limpa_formulário_hospital_cep();
+        }
+    };

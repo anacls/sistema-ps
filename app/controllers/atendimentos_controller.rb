@@ -18,6 +18,6 @@ class AtendimentosController < ApplicationController
   private
 
     def atendimento_params
-      params.require(:atendimento).permit(:situacao, :sintomas, :tempoCheg, :tipoAtendimento)
+      params.require(:atendimento).permit(:situacao, :sintomas, :tempoCheg, :tipoAtendimento, :hospital)
     end
 end

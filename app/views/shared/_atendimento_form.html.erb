@@ -1,11 +1,28 @@
 <%= form_for(@atendimento) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
   <div class="field">
-    <%= f.text_area :situacao, placeholder: "Situação" %>
-    <%= f.text_field :sintomas, placeholder: "Sintomas" %>
-    <%= f.label :tempoCheg %>
+    <div class="col-md-5">
+    <%= f.label :sintomas, "Sintomas" %>
+    <%= f.text_area :sintomas, placeholder: "Descreva os sintomas" %>
+    <%= f.label :situacao, "Situação:" %>
+    <%= f.select :situacao, ['Muito Urgente', 'Urgente', 'Média'] %>
+    <br>
+    <br>
+    <%= f.label :hospital, "Hospital" %>
+    <%= collection_select(:hospital, :nome, Hospital.all, :id, :nome)%>
+    <br>
+    <br>
+    <%= f.label :tipoAtendimento, "Tipo Atendimento" %>
+    <%= f.select :tipoAtendimento, ['Próprio', 'Outra pessoa'] %>
+    <br>
+    <br>
+    <%= f.label :tempoCheg, "Tempo até chegar" %>
     <%= f.time_select :tempoCheg %>
-    <%= f.text_field :tipoAtendimento, placeholder: "Tipo de atendimento" %>
+    <br>
+    <br>
+    <%= f.submit "Solicitar", class: "btn btn-primary" %>
+    </div>
+  
+  
   </div>
-  <%= f.submit "Post", class: "btn btn-primary" %>
 <% end %>

@@ -10,17 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180610103309) do
+ActiveRecord::Schema.define(version: 20180610162525) do
 
   create_table "atendimentos", force: :cascade do |t|
     t.text "situacao"
     t.integer "paciente_id"
+    t.integer "hospital_id"
     t.string "sintomas"
     t.time "tempoCheg"
     t.string "tipoAtendimento"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "hospital"
+    t.index ["hospital_id", "created_at"], name: "index_atendimentos_on_hospital_id_and_created_at"
+    t.index ["hospital_id"], name: "index_atendimentos_on_hospital_id"
     t.index ["paciente_id", "created_at"], name: "index_atendimentos_on_paciente_id_and_created_at"
     t.index ["paciente_id"], name: "index_atendimentos_on_paciente_id"
   end
@@ -34,6 +36,11 @@ ActiveRecord::Schema.define(version: 20180610103309) do
     t.string "senha"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "numero"
+    t.string "bairro"
+    t.string "cidade"
+    t.string "estado"
+    t.string "cep"
   end
 
   create_table "pacientes", force: :cascade do |t|

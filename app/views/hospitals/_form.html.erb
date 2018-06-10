@@ -10,17 +10,11 @@
       </ul>
     </div>
   <% end %>
-
+  <div class="col-md-4">
   <div class="field">
     <%= form.label :nome %>
     <%= form.text_field :nome, id: :hospital_nome %>
   </div>
-
-  <div class="field">
-    <%= form.label :endereco %>
-    <%= form.text_field :endereco, id: :hospital_endereco %>
-  </div>
-
   <div class="field">
     <%= form.label :cnpj %>
     <%= form.text_field :cnpj, id: :hospital_cnpj %>
@@ -38,10 +32,39 @@
 
   <div class="field">
     <%= form.label :senha %>
-    <%= form.text_field :senha, id: :hospital_senha %>
+    <%= form.password_field :senha, id: :hospital_senha %>
   </div>
-
-  <div class="actions">
-    <%= form.submit %>
   </div>
+  <div class="col-md-4">
+    <div class="field">
+      <%= form.label :cep %>
+      <%= form.text_field :cep, id: :cep, onblur: "pesquisacephospital(this.value)", placeholder:"00.000-000"  %>
+    </div>
+    <div class="field">
+      <%= form.label :endereco %>
+      <%= form.text_field :endereco, id: :hospital_endereco %>
+    </div>
+    <div class="field">
+      <%= form.label :cidade %>
+      <%= form.text_field :cidade, id: :hospital_cidade %>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="field">
+      <%= form.label :numero %>
+      <%= form.text_field :numero, id: :hospital_numero %>
+    </div>
+    <div class="field">
+      <%= form.label :bairro %>
+      <%= form.text_field :bairro, id: :hospital_bairro %>
+    </div>
+    <div class="field">
+      <%= form.label :estado %>
+      <%= form.text_field :estado, id: :hospital_estado %>
+    </div>
+    <div class="actions cadastro_paciente center">
+    <input type="submit" value="Cadastrar" class= "btn btn-info center"> </input>
+    </div>
+  </div>
+  
 <% end %>
