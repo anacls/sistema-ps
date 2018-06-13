@@ -1,6 +1,5 @@
 class HospitalsController < ApplicationController
   before_action :set_hospital, only: [:show, :edit, :update, :destroy]
-
   # GET /hospitals
   # GET /hospitals.json
   def index
@@ -66,4 +65,5 @@ class HospitalsController < ApplicationController
     def hospital_params
       params.require(:hospital).permit(:nome, :endereco, :numero, :cep, :cidade, :estado, :bairro, :cnpj, :telefone, :email, :senha)
     end
+    
 end
