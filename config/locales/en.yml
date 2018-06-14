@@ -30,4 +30,11 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+    hello: "Hello world"
+    errors:
+        messages:
+            blank: "não pode estar vazio"
+            too_short: "curto demais"
+            wrong_length: "tamanho inválido"
+            too_long: "longo demais"
+            invalid: "formato inválido"
