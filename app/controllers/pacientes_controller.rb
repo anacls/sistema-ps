@@ -31,7 +31,7 @@ class PacientesController < ApplicationController
     respond_to do |format|
       if @paciente.save
         log_in @paciente
-        format.html { redirect_to @paciente, notice: 'Paciente was successfully created.' }
+        format.html { redirect_to @paciente, notice: 'Paciente foi criado com sucesso.' }
         format.json { render :show, status: :created, location: @paciente }
         else
           format.html { render :new }
@@ -45,7 +45,7 @@ class PacientesController < ApplicationController
   def update
     @paciente = Paciente.find(params[:id])
     if @paciente.update_attributes(paciente_params)
-      flash[:success] = "Profile updated"
+      flash[:success] = "Perfil Atualizado"
       redirect_to @paciente
     else
       render 'edit'
@@ -57,7 +57,7 @@ class PacientesController < ApplicationController
   def destroy
     @paciente.destroy
     respond_to do |format|
-      format.html { redirect_to root_url, notice: 'Paciente was successfully destroyed.' }
+      format.html { redirect_to root_url, notice: 'Paciente excluido com sucesso.' }
       format.json { head :no_content }
     end
   end

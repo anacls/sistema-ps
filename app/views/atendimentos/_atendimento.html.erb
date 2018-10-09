@@ -9,6 +9,9 @@
   <span class="content">Tipo de Atendimento: </span>
   <span class="content"><%= atendimento.tipoAtendimento %></span>
   <br>
+  <span class="content">Hospital: </span>
+  <span class="content"><%= atendimento.hospital %></span>
+  <br>
   <span class="timestamp">
     Realizado <%= time_ago_in_words(atendimento.created_at) %> atrás.
   </span>

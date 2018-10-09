@@ -1,7 +1,7 @@
 <%= form_with(model: paciente, local: true) do |form| %>
   <% if paciente.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(paciente.errors.count, "error") %> prohibited this paciente from being saved:</h2>
+      <h2><%= pluralize(paciente.errors.count, "erro") %> impediram usuário de ser salvo:</h2>
 
       <ul>
       <% paciente.errors.full_messages.each do |message| %>
@@ -51,7 +51,7 @@
 <div class="col-md-4">
   <div class="field">
       <%= form.label :CEP %>
-      <%= form.text_field :cep, id: :cep, onblur: "pesquisacep(this.value)", placeholder:"00.000-000" %>
+      <%= form.text_field :cep, id: :cep, onblur: "pesquisacep(this.value)", placeholder:"00000000" %>
   </div>
   <div class="field">
     <%= form.label :endereço %>
